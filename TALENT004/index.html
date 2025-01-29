@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FORO FILMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de navegación con controles de filtrado y búsqueda -->
+    <nav class="controles">
+        <div class="search-container">
+            <select id="listaDesplegableGenero">
+                <option value="">Todos los géneros</option>
+            </select>
+            <input type="text" id="campoBusquedaTitulo" placeholder="Buscar película...">
+            <button id="btnBuscar">Buscar</button>
+        </div>
+        
+        <div class="genre-buttons">
+            <button class="btnGenero">Animación</button>
+            <button class="btnGenero">Ciencia Ficción</button>
+            <button class="btnGenero">Romance</button>
+            <button class="btnGenero">Acción</button>
+        </div>
+        
+        <div class="sort-container">
+            <button id="btnAnio">Ordenar por año ↓</button>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal de películas -->
+    <main class="contenedor-peliculas">
+        <div id="listaPeliculas" class="grid-peliculas"></div>
+        <div id="mensajeNoResultados" class="mensaje-error" style="display: none">
+            No se encontraron películas
+        </div>
+    </main>
+    
+    <script src="main.js" type="module"></script>
+</body>
+</html>

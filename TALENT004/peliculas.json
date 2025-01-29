@@ -1,0 +1,7 @@
+[
+    { "titulo": "El Rey León", "genero": "Animación", "año": 1994, "imagen": "img/reyLeon.jpeg"},
+    { "titulo": "Matrix", "genero": "Ciencia Ficción", "año": 1999, "imagen": "img/matrix.jpeg"},
+    { "titulo": "Titanic", "genero": "Romance", "año": 1997,"imagen": "img/titanic.jpeg"},
+    { "titulo": "Avengers: Endgame", "genero": "Acción", "año": 2019, "imagen": "img/avengersEndgame.jpeg"},
+    { "titulo": "Toy Story 4", "genero": "Animación", "año": 1995, "imagen": "img/toyStory4.jpeg"}
+]

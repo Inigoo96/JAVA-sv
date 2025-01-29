@@ -1,0 +1,213 @@
+:root {
+   --color-background: #0A0A0A;
+   --color-surface: #141414;
+   --color-primary: #E50914;  /* Color Netflix */
+   --color-primary-hover: #F40612;  /* Color primario al pasar el mouse */
+   --color-text: #FFFFFF;
+   --color-text-secondary: #8C8C8C;
+   --color-overlay: rgba(0, 0, 0, 0.7);
+   --spacing-base: 1rem;
+   --border-radius: 8px;
+   --transition-speed: 0.3s;
+}
+
+body {
+   background-color: var(--color-background);
+   color: var(--color-text);
+   font-family: 'Segoe UI', system-ui, sans-serif;
+   margin: 0;
+   min-height: 100vh;
+   line-height: 1.6;
+}
+
+/* Barra de navegación moderna */
+.controles {
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+   padding: calc(var(--spacing-base) * 1.5);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+   display: flex;
+   align-items: center;
+   gap: calc(var(--spacing-base) * 1.5);
+   backdrop-filter: blur(10px);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Elementos de búsqueda estilo streaming */
+.search-container {
+   display: flex;
+   gap: calc(var(--spacing-base) * 0.5);
+   flex: 1;
+   min-width: 300px;
+}
+
+select, input {
+   background-color: rgba(255, 255, 255, 0.1);
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   border-radius: var(--border-radius);
+   color: var(--color-text);
+   padding: calc(var(--spacing-base) * 0.75);
+   transition: background-color var(--transition-speed), border-color var(--transition-speed);
+   font-size: 1rem;
+}
+
+select:focus, input:focus {
+   background-color: rgba(255, 255, 255, 0.15);
+   outline: none;
+   border-color: var(--color-primary);
+}
+
+/* Botones estilo Netflix/Prime */
+button {
+   background-color: var(--color-primary);
+   color: var(--color-text);
+   border: none;
+   border-radius: var(--border-radius);
+   font-weight: 600;
+   padding: calc(var(--spacing-base) * 0.75) calc(var(--spacing-base) * 1.5);
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+   cursor: pointer;
+   transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+button:hover {
+   background-color: var(--color-primary-hover);
+   transform: translateY(-2px);
+}
+
+button:active {
+   transform: translateY(0);
+}
+
+/* Grid de películas estilo streaming */
+.contenedor-peliculas {
+   padding: calc(var(--spacing-base) * 2);
+   max-width: 1800px;
+   margin: 0 auto;
+}
+
+.grid-peliculas {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+   gap: calc(var(--spacing-base) * 1.5);
+}
+
+/* Tarjetas de película estilo Netflix */
+.pelicula {
+   position: relative;
+   aspect-ratio: 2/3;
+   width: 100%;
+   border-radius: var(--border-radius);
+   overflow: hidden;
+   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.pelicula:hover {
+   transform: scale(1.05);
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.pelicula::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 50%;
+   background: linear-gradient(
+       transparent,
+       rgba(0, 0, 0, 0.4) 20%,
+       rgba(0, 0, 0, 0.7) 100%
+   );
+}
+
+.pelicula__content {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   padding: 1rem;
+   z-index: 1;
+}
+
+.pelicula h3 {
+   margin: 0 0 0.5rem 0;
+   font-size: 1.3rem;
+   line-height: 1.3;
+   color: var(--color-text);
+   font-weight: 600;
+}
+
+.pelicula p {
+   margin: 0;
+   font-size: 1rem;
+   color: var(--color-text);
+}
+
+/* Mensajes de error estilizados */
+.mensaje-error {
+   color: var(--color-text-secondary);
+   text-align: center;
+   padding: calc(var(--spacing-base) * 4);
+   font-size: 1.2rem;
+   background: var(--color-surface);
+   border-radius: var(--border-radius);
+   margin: calc(var(--spacing-base) * 2);
+}
+
+/* Botones de género */
+.genre-buttons {
+   display: flex;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+}
+
+.btnGenero {
+   background-color: rgba(255, 255, 255, 0.1);
+   color: var(--color-text);
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   font-size: 0.9rem;
+   padding: 0.5rem 1rem;
+   border-radius: var(--border-radius);
+   cursor: pointer;
+   transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.btnGenero:hover {
+   background-color: var(--color-primary);
+   border-color: var(--color-primary);
+}
+
+/* Imagen y info de la película */
+.pelicula-imagen {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: var(--border-radius);
+}
+
+.pelicula-info {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   background: linear-gradient(transparent, var(--color-overlay));
+   padding: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+   .controles {
+       flex-direction: column;
+       padding: var(--spacing-base);
+   }
+
+   .search-container,
+   .genre-buttons {
+       width: 100%;
+   }
+
+   .grid-peliculas {
+       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+   }
+}
